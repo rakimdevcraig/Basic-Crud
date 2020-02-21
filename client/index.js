@@ -13,10 +13,11 @@ fetch(url)
     .then((data) => {
         console.log(data)
         return data.map((data) => {
-            let li = createNode('li')
-            li.innerHTML = `${data.name}`;
+            let li = document.createElement(`li`)
+            let liContent = document.createTextNode(`${data.name}`)
+            append(li, liContent)
             let parentDiv = document.getElementById("test")
-            append(ul, li);
+            append(parentDiv, li);
         })
     })
     .catch((error) => {
